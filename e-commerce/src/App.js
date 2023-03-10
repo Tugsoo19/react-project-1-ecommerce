@@ -11,6 +11,8 @@ import { useState } from "react";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 
+import SearchResult from "./components/SearchResult";
+
 function App() {
   const [wishlist, setWishlist] = useState([]);
   const [basket, setBasket] = useState([]);
@@ -25,6 +27,7 @@ function App() {
           basket={basket}
           setBasket={setBasket}
         />
+
       </div>
 
       <div>
@@ -41,6 +44,7 @@ function App() {
             }
           ></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/search" element={<SearchResult />}></Route>
           <Route
             path="/productDetails/:id"
             element={<ProductDetails

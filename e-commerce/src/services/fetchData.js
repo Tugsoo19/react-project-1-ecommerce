@@ -6,4 +6,12 @@ async function fetchPopularCategory(url, setPopularCategory) {
 
 }
 
-export default fetchPopularCategory
+async function fetchProducts(url, setProducts) {
+    const result = await axios.get(url)
+    setProducts(result.data)
+
+}
+
+
+
+export { fetchPopularCategory, fetchProducts }

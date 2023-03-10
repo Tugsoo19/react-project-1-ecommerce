@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 
 
+
 export default function SearchBar(props) {
   const [showWish, setShowWish] = useState(false);
   const [showBasket, setShowBasket] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const notifyBasketRemove = (title) => toast.error(title + "-г сагснаас амжилттай устгалаа.! ", {
     icon: <i class="bi bi-trash3"></i>
   });
@@ -46,6 +48,10 @@ export default function SearchBar(props) {
     notifyWishlistRemove(title);
   }
 
+  function handleSearchInput(e) {
+    console.log(e.target.value);
+    setSearchValue(e.target.value);
+  }
 
   return (
     <div className="searchbar-container">
@@ -64,9 +70,14 @@ export default function SearchBar(props) {
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="search-addon"
+                value={searchValue}
+                onChange={handleSearchInput}
               />
               <button type="button" className="btn btn-warning">
-                search
+                <Link to={"/search"}
+                  state={{ data: searchValue }}
+                >Search</Link>
+
               </button>
             </div>
           </div>
@@ -178,6 +189,7 @@ export default function SearchBar(props) {
         )}
 
       </div>
+
     </div >
   );
 }
