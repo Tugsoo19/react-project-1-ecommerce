@@ -12,6 +12,9 @@ async function fetchProducts(url, setProducts) {
 
 }
 
+async function fetchMenu(url, setMenus) {
+    const result = await axios.get(url);
+    setMenus(result.data)
+}
 
-
-export { fetchPopularCategory, fetchProducts }
+export { fetchPopularCategory, fetchProducts, fetchMenu }
