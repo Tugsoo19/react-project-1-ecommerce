@@ -1,0 +1,17 @@
+GET http://localhost:8181/menu/all HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST  http://localhost:8181/menu/add HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"About Us",
+    "position": "1",
+    "children":[
+        
+    ]
+}
+
+###
